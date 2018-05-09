@@ -18,7 +18,7 @@
  * It executes a Selenium test example against Chrome and Firefox, in separate docker containers and in parallel
  */
 
-node("docker-slave") {
+node {
     
 	// Define the docker container variables to stop them at the end of the pipeline
     def sel_hub
