@@ -34,7 +34,7 @@ node("docker-slave") {
     
 	// Selenium test also run into containers. With inside the containers are automatically stop after execution
     stage('Checkout') {
-      git 'https://github.com/carloscaverobarca/selenium-example.git'
+      git 'https://github.com/timrsfo/selenium-example.git'
       parallel (
         firefox: {
           docker.image('maven:3.3.9-jdk-8-alpine').inside { 
