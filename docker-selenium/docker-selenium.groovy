@@ -30,8 +30,8 @@ node {
     // In the preparation phase the three containers are run to parallelize the execution of chrome and firefox testing
       stage('Preparation') {
           sel_hub = docker.image('selenium/hub:3.4.0').run('-p 4444:4444 --name se-grid-hub')
-          sel_chrome = docker.image('selenium/node-chrome-debug:3.4.0').run('-p 5901:5900 --link se-grid-hub:hub')
-          sel_firefox = docker.image('selenium/node-firefox-debug:3.4.0').run('-p 5902:5900 --link se-grid-hub:hub')
+          sel_chrome = docker.image('selenium/node-chrome:3.4.0').run('-p 5901:5900 --link se-grid-hub:hub')
+          sel_firefox = docker.image('selenium/node-firefox:3.4.0').run('-p 5902:5900 --link se-grid-hub:hub')
       }
       
     // Selenium test also run into containers. With inside the containers are automatically stop after execution
