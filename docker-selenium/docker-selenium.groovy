@@ -39,14 +39,14 @@ node {
         git 'https://github.com/timrsfo/selenium-example.git'
         parallel (
           firefox: {
-            docker.image('maven:3.3.9-jdk-8-alpine').inside { 
+            docker.image('maven:3.5.3-jdk-8-alpine').inside { 
               stage('Test firefox') {
                 sh 'mvn -B clean test -Dselenium.browser=firefox -Dsurefire.rerunFailingTestsCount=5 -Dsleep=0'
               }
             }
           },
           chrome: {
-            docker.image('maven:3.3.9-jdk-8-alpine').inside { 
+            docker.image('maven:3.5.3-jdk-8-alpine').inside { 
               stage('Test chrome') {
                 sh 'mvn -B clean test -Dselenium.browser=chrome -Dsurefire.rerunFailingTestsCount=5 -Dsleep=0'
               }
