@@ -24,6 +24,16 @@ node {
     def sel_hub
     def sel_chrome
     def sel_firefox
+    
+   properties([
+      parameters([
+        choice (name: 'CHOICE_ENV', choices: 'QA\nDEV\nPROD', description: 'The choice environment'),
+        string (name: 'DEPLOY_ENV', defaultValue: 'TESTING', description: 'The target environment')
+       ])
+    ])
+
+    echo "DEPLOY_ENV is ${params.DEPLOY_ENV}"
+    echo "CHOICE_ENV is ${params.CHOICE_ENV}"
 
     try {
 
